@@ -9,7 +9,8 @@ export default function BookContextProvider(props) {
     {title:'Widow', author:'Muriel', id:3}
   ])
   const addBook = (title, artist) => {
-    setBooks([...books, {title:title, artist:artist}])
+    // setBooks([...books, {title:title, artist:artist}])
+    setBooks([...books, {title, artist, id:4}])
   }
   return (
     <div>
