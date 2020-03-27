@@ -9,7 +9,10 @@ export default function BookContextProvider(props) {
   //   {title:'Black Pigeon speaks', author:'Jack', id:2},
   //   {title:'Widow', author:'Muriel', id:3}
   // ]
-  const[books, dispatch] = useReducer(bookReducer, [])   // initial state is empty now !
+  const[books, dispatch] = useReducer(bookReducer, [], () => {
+    const localData = localStorage.getItem('books');
+    return localData ? JSON.parse(localData) : [];               // THE DATA PERSISTS !!!!!!!!!
+  });
   // const addBook = (title, artist) => {
   //   // setBooks([...books, {title:title, artist:artist}])
   //   setBooks([...books, {title, artist, id: uuid() }])             // This is done in the reducer now !
