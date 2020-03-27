@@ -1,4 +1,5 @@
-import React, {createContext, useState} from 'react'
+import React, {createContext, useState} from 'react';
+import uuid from 'uuid/v1';
 
 export const BookContext = createContext();
 
@@ -10,7 +11,7 @@ export default function BookContextProvider(props) {
   ])
   const addBook = (title, artist) => {
     // setBooks([...books, {title:title, artist:artist}])
-    setBooks([...books, {title, artist, id:4}])
+    setBooks([...books, {title, artist, id: uuid() }])
   }
   return (
     <div>
