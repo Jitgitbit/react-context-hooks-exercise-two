@@ -7,8 +7,10 @@ export default function BookForm() {
   const [author, setAuthor] = useState('');
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(title, author)
+    console.log(title, author);
     addBook(title, author);
+    setTitle('');                 // emptying inputfield after submit
+    setAuthor('');
   }
   return (
     <form onSubmit={handleSubmit}>
