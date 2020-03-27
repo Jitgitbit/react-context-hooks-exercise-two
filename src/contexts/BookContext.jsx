@@ -13,9 +13,12 @@ export default function BookContextProvider(props) {
     // setBooks([...books, {title:title, artist:artist}])
     setBooks([...books, {title, artist, id: uuid() }])
   }
+  const removeBook = (id) => {
+    setBooks(books.filter(book => book.id !== id))
+  }
   return (
-    <div>
-      
-    </div>
+    <BookContext.Provider value={{books, addBook, removeBook}}>
+      {props.children}
+    </BookContext.Provider>
   )
 }
